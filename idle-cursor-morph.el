@@ -1,8 +1,8 @@
 ;;; idle-cursor-morph.el --- Morph cursor when idle.
 
-;; Copyright (C) 2013  Taylan Ulrich B.
+;; Copyright (C) 2025  Taylan Kammer
 
-;; Author: Taylan Ulrich B. <taylanbayirli@gmail.com>
+;; Author: Taylan Kammer <taylan.kammer@gmail.com>
 ;; Keywords: convenience
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -20,8 +20,10 @@
 
 ;;; Commentary:
 
-;; Change the cursor-appearance after a certain time of inactivity, so it is
-;; easier to find after losing focus from the screen and later coming back.
+;; Change the cursor appearance after a certain time of inactivity, so it is
+;; easier to find after a pause or distraction.
+;;
+;; You can configure the parameters via the Customize system.
 
 ;;; Code:
 
@@ -102,7 +104,7 @@ before `idle-cursor-morph' changed them."
         (run-with-idle-timer idle-cursor-timeout t 'idle-cursor-morph)))
 
 (defun idle-cursor-deactivate ()
-  "De-activate the idle-cursor-morphing functionality."
+  "Deactivate the idle-cursor-morphing functionality."
   (interactive)
   (if idle-cursor-morph-timer
       (cancel-timer idle-cursor-morph-timer)))
